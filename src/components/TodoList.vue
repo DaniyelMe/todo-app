@@ -19,21 +19,17 @@
 <script>
 export default {
 	name: 'TodoList',
-	props: {
-		todos: {
-			type: Array,
-			required: true,
-			default: function () {
-				return [];
-			}
+	computed: {
+		todos() {
+			return this.$store.state.listOfTodos;
 		}
 	},
 	methods: {
 		doneTodo(item) {
-			this.$emit('doneTodo', item.id);
+			this.$store.dispatch('doneTodo', item.id);
 		},
 		removeTodo(item) {
-			this.$emit('removeTodo', item.id);
+			this.$store.dispatch('removeTodo', item.id);
 		}
 	}
 };

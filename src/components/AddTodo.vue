@@ -1,5 +1,5 @@
 <template>
-	<b-form inline class="form" fluid="sm">
+	<b-form class="form">
 		<b-form-input
 			class="input"
 			aria-describedby="input-live-help input-live-feedback"
@@ -26,7 +26,7 @@ export default {
 			if (this.text.length < 2) return (this.inputState = false);
 
 			this.inputState = true;
-			this.$emit('add', this.text);
+			this.$store.dispatch('add', this.text);
 			// Reset
 			this.text = '';
 			this.inputState = null;

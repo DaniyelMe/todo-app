@@ -1,41 +1,10 @@
 <template>
-	<b-container fluid id="app">
-		<header class="headline">My Todo's</header>
-		<AddTodo @add="add" />
-		<TodoList :todos="listOfTodos" @removeTodo="removeTodo" @doneTodo="doneTodo" />
-	</b-container>
+	<router-view></router-view>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue';
-import AddTodo from './components/AddTodo.vue';
-
 export default {
-	name: 'App',
-	components: { TodoList, AddTodo },
-	data() {
-		return {
-			listOfTodos: [
-				{ lable: 'wash dishes', done: false, id: 0 },
-				{ lable: 'clean the room', done: false, id: 1 }
-			]
-		};
-	},
-	methods: {
-		add(text) {
-			const randId = crypto.getRandomValues(new Uint8Array(10)).join('');
-			this.listOfTodos.push({ lable: text, done: false, id: randId });
-		},
-		removeTodo(id) {
-			this.listOfTodos = this.listOfTodos.filter((todo) => todo.id !== id);
-			console.log('~ this.listOfTodos', this.listOfTodos);
-		},
-		doneTodo(id) {
-			this.listOfTodos.forEach((todo) => {
-				if (todo.id === id) todo.done = !todo.done;
-			});
-		}
-	}
+	name: 'App'
 };
 </script>
 
