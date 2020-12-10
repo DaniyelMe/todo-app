@@ -1,5 +1,11 @@
 <template>
-	<router-view></router-view>
+	<div class="app-container">
+		<router-view></router-view>
+		<footer class="footer">
+			<router-link :to="{ name: 'Todos' }">Home</router-link>
+			<router-link :to="{ name: 'About' }">About</router-link>
+		</footer>
+	</div>
 </template>
 
 <script>
@@ -45,20 +51,64 @@ a {
 	color: inherit;
 	-webkit-tap-highlight-color: transparent;
 }
-#app {
+
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: inherit;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+button:focus {
+	outline: none;
+}
+
+.app-container {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	justify-content: space-between;
 	height: 100%;
-	padding: 0 10px;
 }
-#app > header {
-	font-size: 36px;
+
+.footer {
+	width: 100%;
+	background-color: #292929;
+	color: white;
+	text-align: center;
 }
-.headline {
-	font-family: Fredericka the Great;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 54px;
+
+.footer a {
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	padding: 20px;
+}
+
+.footer a:hover {
+	display: inline-block;
+	color: #28a745;
+	text-decoration: none;
+	padding: 20px;
+}
+
+/* Tablet */
+@media only screen and (max-width: 770px) {
+	.add-button {
+		width: 100%;
+		max-width: 520px;
+		margin-top: 16px;
+	}
+}
+
+/* Phone */
+@media only screen and (max-width: 375px) {
+	#input-todo {
+		max-width: 354px;
+	}
 }
 </style>

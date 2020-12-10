@@ -1,9 +1,9 @@
 <template>
-	<b-container fluid="sm" id="app">
-		<header class="headline">My Todo's</header>
+	<div id="app" class="container">
+		<header class="headline text-center button">My Todo's</header>
 		<AddTodo />
 		<TodoList />
-	</b-container>
+	</div>
 </template>
 
 <script>
@@ -15,3 +15,18 @@ export default {
 	components: { TodoList, AddTodo }
 };
 </script>
+
+<style>
+#app > header {
+	font-size: 36px;
+	padding-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.headline {
+	font-family: Fredericka the Great;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 54px;
+}
+</style>
